@@ -1,6 +1,6 @@
 {
   "name": "@notifax/skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Claude Code skill for sending phone notifications via Notifax",
   "keywords": [
     "claude-code",
@@ -10,7 +10,8 @@
     "notifications",
     "push-notifications",
     "alerts",
-    "phone"
+    "phone",
+    "scheduling"
   ],
   "homepage": "https://github.com/sk-code-01/notifax-skill",
   "repository": {
