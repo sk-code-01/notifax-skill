@@ -1,0 +1,21 @@
+{
+  "name": "@notifax/skill",
+  "version": "1.0.0",
+  "description": "Claude Code skill for sending phone notifications via Notifax",
+  "keywords": [
+    "claude-code",
+    "skill",
+    "agent-skill",
+    "notifax",
+    "notifications",
+    "push-notifications",
+    "alerts",
+    "phone"
+  ],
+  "homepage": "https://github.com/sk-code-01/notifax-skill",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sk-code-01/notifax-skill"
+  },
+  "license": "MIT"
+}
