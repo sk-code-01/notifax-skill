@@ -1,6 +1,6 @@
 ---
 name: notifax
-description: Send notifications directly to the user's phone via Notifax. Use it to keep the user informed about task completions, failures, or anything that needs their attention. Also triggers on "notify me when done", "send me a push notification", "alert me if", "ping my phone", "let me know when finished".
+description: Send notifications to the user's phone via Notifax. Only use when the user explicitly asks to be notified — do NOT send automatically. Triggers on "notify me when done", "send me a push notification", "alert me if X happens", "ping my phone", "let me know when finished".
 argument-hint: "[message]"
 allowed-tools: Bash
 ---
@@ -138,29 +138,7 @@ curl -s -X POST https://workspace-bizz--notifax-backend-fastapi-app.modal.run/ap
 
 **Default to `nudge`.** Only escalate to `alert` if waiting would cause real harm or significant loss.
 
----
-
-## Proactive Usage
-
-Do not wait for the user to ask. Send a notification automatically when:
-
-- You finish a long-running task they asked you to do
-- You encounter an error that blocks progress and need their input
-- You detect something they would want to know immediately
-
-Example at the end of a task:
-
-```bash
-curl -s -X POST https://workspace-bizz--notifax-backend-fastapi-app.modal.run/api/v1/notify \
-  -H "Authorization: Bearer $NOTIFAX_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d "{
-    \"type\": \"nudge\",
-    \"title\": \"Task complete\",
-    \"message\": \"Finished refactoring the auth module. 14 files changed, all tests pass.\",
-    \"agent_name\": \"Claude Code\"
-  }"
-```
+**Only send a notification when the user explicitly asks you to.** Do not send notifications automatically at the end of tasks or for informational updates unless the user has specifically requested it.
 
 ---
 
