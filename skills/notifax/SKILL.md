@@ -142,6 +142,39 @@ curl -s -X POST https://workspace-bizz--notifax-backend-fastapi-app.modal.run/ap
 
 ---
 
+## Multi-Device
+
+One API key works across all of the user's devices. When you call `/api/v1/notify`, the notification is delivered to **every registered device simultaneously** — there is no way to target a specific device.
+
+Stale tokens (uninstalled app, signed-out device) are automatically cleaned up after the first failed delivery attempt.
+
+### List registered devices
+
+```bash
+curl -s https://workspace-bizz--notifax-backend-fastapi-app.modal.run/api/v1/devices \
+  -H "Authorization: Bearer $NOTIFAX_API_KEY"
+```
+
+Response:
+```json
+{
+  "devices": [
+    { "deviceName": "Moto G84", "registeredAt": "Fri Mar 27 12:00:00 2026" },
+    { "deviceName": "Pixel 8", "registeredAt": "Sat Mar 28 09:30:00 2026" }
+  ]
+}
+```
+
+### Remove a device
+
+```bash
+curl -s -X DELETE \
+  "https://workspace-bizz--notifax-backend-fastapi-app.modal.run/api/v1/devices/Moto%20G84" \
+  -H "Authorization: Bearer $NOTIFAX_API_KEY"
+```
+
+---
+
 ## Rate Limits
 
 | Plan | Nudges/day | Alerts/day |
